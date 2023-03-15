@@ -1,0 +1,21 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_wheels:
+    name: Build C++ sources ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [macOS]
+        python_version: ["3.7"]
+
+    steps:
+    - name: get codebase
+      uses: actions/checkout@v3
+      with:
+        submodules: recursive
+
