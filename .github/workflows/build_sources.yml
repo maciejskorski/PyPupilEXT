@@ -18,13 +18,13 @@ jobs:
       uses: actions/checkout@v3
       with:
         submodules: recursive
-    - name: install vcpkg
+    - name: install with vcpkg
       run: |
         git clone https://github.com/Microsoft/vcpkg.git
         ./vcpkg/bootstrap-vcpkg.sh
         export VCPKG_ROOT=../vcpkg/
         cd PyPupilEXT
-        vpckg install
+        vcpkg install
 
         
 
